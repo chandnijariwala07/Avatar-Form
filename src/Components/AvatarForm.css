@@ -1,0 +1,22 @@
+.Avatar-form {
+    margin: 16px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    width: 60%;
+    text-align: center;
+    height: 20%;
+}
+.Avatar-form > h4 {
+    position: absolute;
+    background: white;
+    height: 20px;
+    margin-top: -12px;
+    margin-left: 25%;
+    padding: 0 10px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+.slider {
+    height: 50px;
+    cursor: pointer;
+}
