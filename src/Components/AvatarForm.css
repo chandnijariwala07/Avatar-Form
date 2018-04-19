@@ -3,20 +3,30 @@
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     width: 60%;
-    text-align: center;
-    height: 20%;
+    height: 40%;
 }
 .Avatar-form > h4 {
-    position: absolute;
     background: white;
+    transform: translate(425px, -35px);
+    position: absolute;
+    width: 150px;
     height: 20px;
-    margin-top: -12px;
-    margin-left: 25%;
-    padding: 0 10px;
     text-align: center;
-    border: 1px solid #eee;
+    border: 2px solid #eee;
+    border-radius: 40%;
 }
-.slider {
-    height: 50px;
+.arrow-left {
+    position: absolute;
     cursor: pointer;
+    transform: translate(0, 4px);
+    right: 80%;
+}
+.arrow-right {
+    position: absolute;
+    cursor: pointer;
+    transform: translate(0, 4px);
+    left: 80%;
+}
+.content {
+    margin: 60px;
 }

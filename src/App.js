@@ -5,13 +5,11 @@ import AvatarTop from './Components/AvatarTop';
 import AvatarAccessory from './Components/AvatarAccessory';
 import AvatarSkin from './Components/AvatarSkin';
 import AvatarMouth from './Components/AvatarMouth';
+import AvatarHair from './Components/AvatarHair';
 import AvatarEye from './Components/AvatarEye';
 import AvatarEyebrow from './Components/AvatarEyebrow';
 import AvatarFacialHair from './Components/AvatarFacialHair';
 import AvatarClothe from './Components/AvatarClothe';
-import "../node_modules/slick-carousel/slick/slick.css";
-import "../node_modules/slick-carousel/slick/slick-theme.css";
-
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +20,6 @@ class App extends React.Component {
       hair: '',
       facialHair: '',
       clothe: '',
-      clotheColor: '',
       eye: '',
       eyebrow: '',
       mouth: '',
@@ -30,7 +27,7 @@ class App extends React.Component {
     }
   }
   
-  myCallback = (data) => {
+  newAvatarData = (data) => {
     if (data.top) {this.setState ({top: data.top})}
     if (data.accessory) {this.setState ({accessory: data.accessory})}
     if (data.hair) {this.setState ({hair: data.hair})}
@@ -43,37 +40,36 @@ class App extends React.Component {
   }
 
   render() {
+    const changedAvatarProperties = {
+      avatarStyle: 'Transparent',
+      topType: this.state.top,
+      accessoriesType: this.state.accessory,
+      hairColor: this.state.hair,
+      facialHairType: this.state.facialHair,
+      clotheType: this.state.clothe,
+      eyeType: this.state.eye,
+      eyebrowType: this.state.eyebrow,
+      mouthType: this.state.mouth,
+      skinColor: this.state.skin,
+    }
     return (
       <div className='App'>
-        <p className='App-intro'>
-          Change your Avatar
-        </p>
-
-        <Avatar
-          style={{width: '100px', height: '100px'}}
-          avatarStyle='Transparent'
-          topType={this.state.top}
-          accessoriesType={this.state.accessory}
-          hairColor={this.state.hair}
-          facialHairType={this.state.facialHair}
-          clotheType={this.state.clothe}
-          eyeType={this.state.eye}
-          eyebrowType={this.state.eyebrow}
-          mouthType={this.state.mouth}
-          skinColor={this.state.skin} />
-
-        <AvatarTop myCallbackFromParent={this.myCallback} />
-        <AvatarAccessory myCallbackFromParent={this.myCallback} />
-        <AvatarSkin myCallbackFromParent={this.myCallback} />
-        <AvatarEye myCallbackFromParent={this.myCallback} />
-        <AvatarMouth myCallbackFromParent={this.myCallback} />
-        <AvatarEyebrow myCallbackFromParent={this.myCallback} />
-        <AvatarFacialHair myCallbackFromParent={this.myCallback} />
-        <AvatarClothe myCallbackFromParent={this.myCallback} />
-
+        <div className='App-header' />
+        <h2 className='App-intro'>
+          Design your Avatar
+        </h2>
+        <Avatar {...changedAvatarProperties} /><br />
+        <AvatarTop changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarAccessory changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarSkin changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarEye changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarHair changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarMouth changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarEyebrow changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarFacialHair changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} /><br />
+        <AvatarClothe changedOptions={changedAvatarProperties} getAvatarData={this.newAvatarData} />
       </div>
     );
   }
 }
-
 export default App;
